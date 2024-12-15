@@ -1,5 +1,6 @@
 package net.fabienit.springangulardemo.web;
 
+import net.fabienit.springangulardemo.dtos.NewPaymentDTO;
 import net.fabienit.springangulardemo.entities.Payment;
 import net.fabienit.springangulardemo.entities.PaymentStatus;
 import net.fabienit.springangulardemo.entities.PaymentType;
@@ -12,15 +13,10 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
-import java.net.URI;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.time.LocalDate;
 import java.util.List;
-import java.util.UUID;
 
 @RestController
+@CrossOrigin(origins = "*")
 public class PaymentRestController {
 
     private StudentRepository studentRepository;
@@ -81,8 +77,8 @@ public class PaymentRestController {
     }
 
     @PostMapping(value = "/payments", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public Payment savePayment(@RequestParam MultipartFile file, LocalDate date, double amount, PaymentType type, String studentCode) throws IOException {
-        return this.paymentService.savePayment(file, date, amount, type, studentCode);
+    public Payment savePayment(@RequestParam("file") MultipartFile file, NewPaymentDTO newPaymentDTO) throws IOException {
+        return this.paymentService.savePayment(file, newPaymentDTO);
     }
 
     @GetMapping(path = "/paymentFile/{paymentId}", produces = MediaType.APPLICATION_PDF_VALUE)

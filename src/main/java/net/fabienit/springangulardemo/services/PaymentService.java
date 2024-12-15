@@ -1,5 +1,6 @@
 package net.fabienit.springangulardemo.services;
 
+import net.fabienit.springangulardemo.dtos.NewPaymentDTO;
 import net.fabienit.springangulardemo.entities.Payment;
 import net.fabienit.springangulardemo.entities.PaymentStatus;
 import net.fabienit.springangulardemo.entities.PaymentType;
@@ -31,7 +32,7 @@ public class PaymentService {
         this.paymentRepository = paymentRepository;
     }
 
-    public Payment savePayment(MultipartFile file, LocalDate date, double amount, PaymentType type, String studentCode) throws IOException {
+    public Payment savePayment(MultipartFile file, NewPaymentDTO newPaymentDTO) throws IOException {
 
         Path folderPath = Paths.get(System.getProperty("user.home"), "other-data", "payments");
         if(!Files.exists(folderPath)){
@@ -40,10 +41,10 @@ public class PaymentService {
         String fileName = UUID.randomUUID().toString();
         Path filePath = Paths.get(System.getProperty("user.home"), "other-data", "payments", fileName+".pdf");
         Files.copy(file.getInputStream(),filePath);
-        Student student = studentRepository.findByCode(studentCode);
+        Student student = studentRepository.findByCode(newPaymentDTO.getStudentCode());
         Payment payment = Payment.builder()
-                .date(date).type(type).student(student)
-                .amount(amount)
+                .date(newPaymentDTO.getDate()).type(newPaymentDTO.getType()).student(student)
+                .amount(newPaymentDTO.getAmount())
                 .file(filePath.toUri().toString())
                 .status(PaymentStatus.CREATED)
                 .build();
