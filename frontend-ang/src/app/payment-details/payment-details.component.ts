@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {StudentsService} from "../services/students.service";
 import {ActivatedRoute} from "@angular/router";
+import {Payment} from "../model/students.model";
 
 @Component({
   selector: 'app-payment-details',
@@ -11,6 +12,7 @@ export class PaymentDetailsComponent implements OnInit{
 
   paymentId! : number;
   pdfFileUrl! : any;
+  payment! : Payment;
 
   constructor(private studentsService : StudentsService, private route : ActivatedRoute) {
   }

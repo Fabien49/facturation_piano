@@ -81,8 +81,8 @@ public class PaymentRestController {
         return this.paymentService.savePayment(file, newPaymentDTO);
     }
 
-    @GetMapping(path = "/paymentFile/{paymentId}", produces = MediaType.APPLICATION_PDF_VALUE)
-    public byte[] getPaymentFile(@PathVariable Long paymentId) throws IOException {
-        return paymentService.getPaymentFile(paymentId);
+    @GetMapping(path = "/payments/{id}/file", produces = MediaType.APPLICATION_PDF_VALUE)
+    public byte[] getPaymentFile(@PathVariable Long id) throws IOException {
+        return paymentService.getPaymentFile(id);
     }
 }
