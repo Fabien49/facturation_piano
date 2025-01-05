@@ -14,6 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @CrossOrigin(origins = "*")
@@ -61,9 +62,9 @@ public class PaymentRestController {
         return studentRepository.findAll();
     }
 
-    @GetMapping(path = "/students/{code}")
-    public Student getStudentByCode(@PathVariable String code){
-        return studentRepository.findByCode(code);
+    @GetMapping(path = "/students/{student_id}")
+    public Optional<Student> getStudentByCode(@PathVariable String student_id){
+        return studentRepository.findById(student_id);
     }
 
     @GetMapping("/studentsByProgramId")

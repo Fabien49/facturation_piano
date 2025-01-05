@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>net.fabienit</groupId>
-    <artifactId>spring-angular-demo</artifactId>
+    <artifactId>facturation_piano</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>spring-angular-demo</name>
-    <description>spring-angular-demo</description>
+    <name>facturation_piano</name>
+    <description>génération facture de cours de piano</description>
     <url/>
     <licenses>
         <license/>

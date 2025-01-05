@@ -1,5 +1,5 @@
 {
-  "name": "frontend-and-app",
+  "name": "facturation_piano_frontend",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
