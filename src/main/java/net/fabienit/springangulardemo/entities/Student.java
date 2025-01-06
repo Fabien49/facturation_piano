@@ -1,6 +1,8 @@
 package net.fabienit.springangulardemo.entities;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.*;
 
@@ -11,8 +13,9 @@ import lombok.*;
 @Setter
 @Builder
 public class Student {
-    @Id
-    private String student_id;
+
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long studentId;
 
     private String firstName;
 
