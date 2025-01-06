@@ -1,4 +1,4 @@
-package net.fabienit.springangulardemo.entities;
+package net.fabienit.facturation_piano.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -21,13 +21,13 @@ public class Bill {
 
     private LocalDate sentDate;
 
-    private boolean sent;
-
     private LocalDate relaunchedDate;
 
-    private boolean relaunched;
+    private BillStatus billStatus;
 
-    private boolean unpaid;
+    private PaymentType paymentType;
+
+    private PaymentStatus paymentStatus;
 
     @ManyToOne
     private Student student;

@@ -1,4 +1,4 @@
-package net.fabienit.springangulardemo.entities;
+package net.fabienit.facturation_piano.entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

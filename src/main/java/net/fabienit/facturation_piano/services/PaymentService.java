@@ -1,11 +1,11 @@
-package net.fabienit.springangulardemo.services;
+package net.fabienit.facturation_piano.services;
 
-import net.fabienit.springangulardemo.dtos.NewPaymentDTO;
-import net.fabienit.springangulardemo.entities.Payment;
-import net.fabienit.springangulardemo.entities.PaymentStatus;
-import net.fabienit.springangulardemo.entities.Student;
-import net.fabienit.springangulardemo.repository.PaymentRepository;
-import net.fabienit.springangulardemo.repository.StudentRepository;
+import net.fabienit.facturation_piano.dtos.NewPaymentDTO;
+import net.fabienit.facturation_piano.entities.Payment;
+import net.fabienit.facturation_piano.entities.PaymentStatus;
+import net.fabienit.facturation_piano.entities.Student;
+import net.fabienit.facturation_piano.repository.PaymentRepository;
+import net.fabienit.facturation_piano.repository.StudentRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,7 +16,6 @@ import java.net.URI;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -39,9 +38,9 @@ public class PaymentService {
         String fileName = UUID.randomUUID().toString();
         Path filePath = Paths.get(System.getProperty("user.home"), "other-data", "payments", fileName+".pdf");
         Files.copy(file.getInputStream(),filePath);
-        Optional<Student> student = studentRepository.findById(newPaymentDTO.getStudentCode());
+        Student student = studentRepository.findByLastName(newPaymentDTO.getStudentCode());
         Payment payment = Payment.builder()
-//                .date(newPaymentDTO.getDate()).type(newPaymentDTO.getType()).student(student)
+                .date(newPaymentDTO.getDate()).type(newPaymentDTO.getType()).student(student)
                 .amount(newPaymentDTO.getAmount())
                 .file(filePath.toUri().toString())
                 .status(PaymentStatus.CREATED)

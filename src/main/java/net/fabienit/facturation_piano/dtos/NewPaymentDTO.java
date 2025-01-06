@@ -1,10 +1,10 @@
-package net.fabienit.springangulardemo.dtos;
+package net.fabienit.facturation_piano.dtos;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import net.fabienit.springangulardemo.entities.PaymentType;
+import net.fabienit.facturation_piano.entities.PaymentType;
 
 import java.time.LocalDate;
 

@@ -1,32 +1,20 @@
-package net.fabienit.springangulardemo.entities;
+package net.fabienit.facturation_piano.dtos;
 
-import jakarta.persistence.*;
 import lombok.*;
+import net.fabienit.facturation_piano.entities.PaymentStatus;
+import net.fabienit.facturation_piano.entities.PaymentType;
 
 import java.time.LocalDate;
 
-@Entity
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
 @Builder
-public class Payment {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class PaymentDTO {
     private Long id;
-
     private LocalDate date;
-
     private double amount;
-
     private PaymentType type;
-
     private PaymentStatus status;
-
-    private String file;
-
-    @ManyToOne
-    private Student student;
 }

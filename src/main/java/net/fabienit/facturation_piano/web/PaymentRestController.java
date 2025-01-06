@@ -1,13 +1,13 @@
-package net.fabienit.springangulardemo.web;
+package net.fabienit.facturation_piano.web;
 
-import net.fabienit.springangulardemo.dtos.NewPaymentDTO;
-import net.fabienit.springangulardemo.entities.Payment;
-import net.fabienit.springangulardemo.entities.PaymentStatus;
-import net.fabienit.springangulardemo.entities.PaymentType;
-import net.fabienit.springangulardemo.entities.Student;
-import net.fabienit.springangulardemo.repository.PaymentRepository;
-import net.fabienit.springangulardemo.repository.StudentRepository;
-import net.fabienit.springangulardemo.services.PaymentService;
+import net.fabienit.facturation_piano.dtos.NewPaymentDTO;
+import net.fabienit.facturation_piano.entities.Payment;
+import net.fabienit.facturation_piano.entities.PaymentStatus;
+import net.fabienit.facturation_piano.entities.PaymentType;
+import net.fabienit.facturation_piano.entities.Student;
+import net.fabienit.facturation_piano.repository.PaymentRepository;
+import net.fabienit.facturation_piano.repository.StudentRepository;
+import net.fabienit.facturation_piano.services.PaymentService;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -37,11 +37,6 @@ public class PaymentRestController {
         return paymentRepository.findAll();
     }
 
-    @GetMapping(path = "/students/{code}/payments")
-    public List<Payment> paymentsByStudent(@PathVariable String code){
-        return paymentRepository.findByStudentCode(code);
-    }
-
     @GetMapping(path = "/payments/byStatus")
     public List<Payment> paymentsByStatus(@RequestParam PaymentStatus status){
         return paymentRepository.findByStatus(status);
@@ -57,7 +52,7 @@ public class PaymentRestController {
         return paymentRepository.findById(id).get();
     }
 
-    @GetMapping(path = "/students")
+/*    @GetMapping(path = "/students")
     public List<Student> allStudents(){
         return studentRepository.findAll();
     }
@@ -65,12 +60,12 @@ public class PaymentRestController {
     @GetMapping(path = "/students/{student_id}")
     public Optional<Student> getStudentByCode(@PathVariable String student_id){
         return studentRepository.findById(student_id);
-    }
+    }*/
 
-    @GetMapping("/studentsByProgramId")
+/*    @GetMapping("/studentsByProgramId")
     public List<Student> getStudentsByProgramId(@RequestParam String programId){
         return studentRepository.findByProgramId(programId);
-    }
+    }*/
 
     @PutMapping("/payment/{id}")
     public Payment updatePaymentStatus(@RequestParam PaymentStatus status, @PathVariable Long id){

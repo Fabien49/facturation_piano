@@ -1,4 +1,4 @@
-package net.fabienit.springangulardemo;
+package net.fabienit.facturation_piano;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
