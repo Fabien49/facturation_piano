@@ -12,7 +12,7 @@ import {Router} from "@angular/router";
 export class StudentsComponent implements OnInit{
   students! : Array<Student>;
   studentsDataSource! : MatTableDataSource<Student>;
-  displayedColumns : string[]=['id', 'firstName', 'lastName', 'code', 'programId', 'payments']
+  displayedColumns : string[]=['studentId', 'firstName', 'lastName', 'address', 'zip code', 'city', 'phone number', 'mail', 'student']
 
   constructor(private studentsService : StudentsService, private router : Router) {
   }

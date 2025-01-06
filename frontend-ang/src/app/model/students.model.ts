@@ -1,10 +1,14 @@
 export interface Student {
-  id : string,
+  studentId : bigint,
   code : string,
   firstName : string,
   lastName : string,
-  programId : string,
-  photo : string
+  address : string,
+  zipCode : string,
+  city : string,
+  phoneNumber : string,
+  mail : string,
+  student : boolean
 }
 
 export interface Payment {

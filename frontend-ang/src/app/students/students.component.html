@@ -10,17 +10,21 @@
       <table class="table">
         <thead>
         <tr>
-          <th>ID</th><th>First Name</th><th>Last Name</th><th>Code</th><th>Program IDe</th>
+          <th>ID</th><th>First Name</th><th>Last Name</th><th>Address</th><th>Zip Code</th><th>City</th><th>Phone Number</th><th>Mail</th><th>Student</th>
         </tr>
         </thead>
         <tbody>
           @for (student of students; track student){
         <tr >
-          <td>{{student.id}}</td>
+          <td>{{student.studentId}}</td>
           <td>{{student.firstName}}</td>
           <td>{{student.lastName}}</td>
-          <td>{{student.code}}</td>
-          <td>{{student.programId}}</td>
+          <td>{{student.address}}</td>
+          <td>{{student.zipCode}}</td>
+          <td>{{student.city}}</td>
+          <td>{{student.phoneNumber}}</td>
+          <td>{{student.mail}}</td>
+          <td>{{student.student}}</td>
           <td>
            <button (click)="studentPayments(student)" mat-raised-button color="primary">Payments</button>
           </td>

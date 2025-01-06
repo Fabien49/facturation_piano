@@ -1,17 +1,11 @@
 package net.fabienit.facturation_piano.web;
 
-import net.fabienit.facturation_piano.dtos.NewPaymentDTO;
 import net.fabienit.facturation_piano.entities.*;
 import net.fabienit.facturation_piano.repository.BillRepository;
 import net.fabienit.facturation_piano.repository.StudentRepository;
 import net.fabienit.facturation_piano.services.BillService;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
-
-import java.io.IOException;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @CrossOrigin(origins = "*")
