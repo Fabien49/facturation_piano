@@ -6,10 +6,10 @@ import {StudentsService} from "../services/students.service";
 
 @Component({
   selector: 'app-new-payment',
-  templateUrl: './new-payment.component.html',
-  styleUrl: './new-payment.component.css'
+  templateUrl: './new-bill.component.html',
+  styleUrl: './new-bill.component.css'
 })
-export class NewPaymentComponent implements OnInit{
+export class NewBillComponent implements OnInit{
   paymentFormGroup! : FormGroup;
   studentCode! : string;
   paymentTypes : string[]=[];

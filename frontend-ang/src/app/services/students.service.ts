@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../environments/environment";
 import {Observable} from "rxjs";
-import {Payment, Student} from "../model/students.model";
+import {Bill, Payment, Student} from "../model/students.model";
 
 @Injectable({
   providedIn: 'root'
@@ -19,8 +19,8 @@ export class StudentsService {
     return this.http.get<Array<Student>>(`${environment.backendHost}/students`);
   }
 
-  public getStudentPayments(code : string) : Observable<Array<Payment>>{
-    return this.http.get<Array<Payment>>(`${environment.backendHost}/students/${code}/payments`);
+  public getStudentBills(studentId : bigint) : Observable<Array<Bill>>{
+    return this.http.get<Array<Bill>>(`${environment.backendHost}/students/${studentId}/bills`);
   }
 
   public savePayment(formData : any) : Observable<Payment>{

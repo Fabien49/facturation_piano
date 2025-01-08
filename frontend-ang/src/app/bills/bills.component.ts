@@ -7,10 +7,10 @@ import {StudentsService} from "../services/students.service";
 
 @Component({
   selector: 'app-payments',
-  templateUrl: './payments.component.html',
-  styleUrl: './payments.component.css'
+  templateUrl: './bills.component.html',
+  styleUrl: './bills.component.css'
 })
-export class PaymentsComponent implements OnInit{
+export class BillsComponent implements OnInit{
 
   public payments : any;
   public dataSource : any;

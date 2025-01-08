@@ -5,11 +5,11 @@ import {Bill, Payment} from "../model/students.model";
 import {MatTableDataSource} from "@angular/material/table";
 
 @Component({
-  selector: 'app-student-details',
-  templateUrl: './student-details.component.html',
-  styleUrl: './student-details.component.css'
+  selector: 'app-bills-details',
+  templateUrl: './bills-details.component.html',
+  styleUrl: './bills-details.component.css'
 })
-export class StudentDetailsComponent implements OnInit{
+export class BillsDetailsComponent implements OnInit{
 
   studentId! : bigint;
   studentBills! : Array<Bill>;
@@ -22,7 +22,7 @@ export class StudentDetailsComponent implements OnInit{
   }
 
   ngOnInit() {
-    this.studentId = this.activatedRoute.snapshot.params['studentId'];
+    this.studentId = this.activatedRoute.snapshot.params['billId'];
     this.studentsService.getStudentBills(this.studentId).subscribe({
       next : value => {
         this.studentBills = value;

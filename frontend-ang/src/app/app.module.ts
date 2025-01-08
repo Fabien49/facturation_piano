@@ -16,7 +16,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { LoadStudentsComponent } from './load-students/load-students.component';
 import { LoadPaymentsComponent } from './load-payments/load-payments.component';
 import { StudentsComponent } from './students/students.component';
-import { PaymentsComponent } from './payments/payments.component';
+import { BillsComponent } from './bills/bills.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import {MatCardModule} from "@angular/material/card";
@@ -32,11 +32,12 @@ import {MatSortModule} from "@angular/material/sort";
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatNativeDateModule} from "@angular/material/core";
 import { StudentDetailsComponent } from './student-details/student-details.component';
-import { NewPaymentComponent } from './new-payment/new-payment.component';
+import { NewBillComponent } from './new-bill/new-bill.component';
 import {MatSelectModule} from "@angular/material/select";
 import {PdfViewerModule} from "ng2-pdf-viewer";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import { PaymentDetailsComponent } from './payment-details/payment-details.component';
+import {BillsDetailsComponent} from "./bills-details/bills-details.component";
 
 @NgModule({
   declarations: [
@@ -47,12 +48,13 @@ import { PaymentDetailsComponent } from './payment-details/payment-details.compo
     LoadStudentsComponent,
     LoadPaymentsComponent,
     StudentsComponent,
-    PaymentsComponent,
+    BillsComponent,
     DashboardComponent,
     LoginComponent,
     StudentDetailsComponent,
-    NewPaymentComponent,
-    PaymentDetailsComponent
+    NewBillComponent,
+    PaymentDetailsComponent,
+    BillsDetailsComponent
   ],
   imports: [
     BrowserModule,

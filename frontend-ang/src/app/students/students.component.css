@@ -1,14 +1,68 @@
-.table th {
-  border: solid 1px black;
-  padding: 10px;
-  background: lightgrey;
+/* En-tête du tableau (ligne avec "Prénom", "Nom", etc.) */
+table th, table td {
+  width: 225px; /* Largeur fixe pour toutes les colonnes (ajustez selon vos besoins) */
 }
 
-.table td {
-  border: solid 1px black;
-  padding: 10px;
+table {
+  width: 100%;
+  table-layout: fixed; /* Utiliser un layout fixe pour que la largeur soit appliquée uniformément */
 }
 
+table th {
+
+  padding: 10px;
+  background: #0379f8;
+  color: #ffffff;
+  text-align: center;
+  vertical-align: middle;
+  width: auto;
+}
+
+/* Lignes alternées */
+tr:nth-child(odd) {
+  background-color: white; /* Violet très clair */
+}
+
+tr:nth-child(even) {
+  background-color: #64a9eb; /* Blanc */
+}
+
+/* Cellules des lignes du tableau */
+table td {
+  padding: 10px; /* Espacement */
+  text-align: center; /* Centré */
+}
+
+/* Style pour la carte étudiante */
 .student-card {
   display: inline-block;
+  width: 100%; /* Adapter la largeur au contenu */
+  margin: 10px 0; /* Espacement vertical */
+}
+
+/*!* Boutons "Factures" *!
+button {
+  background-color: #0b335b; !* Violet pastel *!
+  color: white;
+  border: 10px;
+  padding: 5px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #2bd123; !* Violet légèrement plus foncé *!
+}*/
+/* Bouton personnalisé dans le tableau */
+.custom-button {
+  background-color: #0b335b !important; /* Bleu foncé */
+  color: white !important; /* Texte blanc */
+  border: none !important; /* Pas de bordure */
+  padding: 5px 15px !important; /* Espacement */
+  border-radius: 4px !important; /* Coins arrondis */
+  cursor: pointer !important; /* Pointeur de souris */
+}
+
+.custom-button:hover {
+  background-color: #2bd123 !important; /* Vert clair au survol */
 }

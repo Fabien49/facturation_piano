@@ -1,6 +1,5 @@
 export interface Student {
   studentId : bigint,
-  code : string,
   firstName : string,
   lastName : string,
   address : string,
@@ -13,6 +12,16 @@ export interface Student {
 
 export interface Payment {
   id : number,
+  date : string,
+  amount : number,
+  type : string,
+  status : string,
+  file : string,
+  student : Student
+}
+
+export interface Bill {
+  billId : number,
   date : string,
   amount : number,
   type : string,

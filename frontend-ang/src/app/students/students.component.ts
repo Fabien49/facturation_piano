@@ -12,7 +12,7 @@ import {Router} from "@angular/router";
 export class StudentsComponent implements OnInit{
   students! : Array<Student>;
   studentsDataSource! : MatTableDataSource<Student>;
-  displayedColumns : string[]=['studentId', 'firstName', 'lastName', 'address', 'zip code', 'city', 'phone number', 'mail', 'student']
+  displayedColumns : string[]=['studentId', 'firstName', 'lastName', 'address', 'zipCode', 'city', 'phoneNumber', 'mail', 'student', 'bills']
 
   constructor(private studentsService : StudentsService, private router : Router) {
   }
@@ -29,8 +29,8 @@ export class StudentsComponent implements OnInit{
     })
   }
 
-  studentPayments(student: Student) {
-    this.router.navigateByUrl(`/admin/student-details/${student.code}`)
+  studentBills(student: Student) {
+    this.router.navigateByUrl(`/admin/bills-details/${student.studentId}`)
 
   }
 }
