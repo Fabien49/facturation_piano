@@ -9,7 +9,6 @@ table {
 }
 
 table th {
-
   padding: 10px;
   background: #0379f8;
   color: #ffffff;
@@ -65,4 +64,9 @@ button:hover {
 
 .custom-button:hover {
   background-color: #2bd123 !important; /* Vert clair au survol */
+}
+
+.newStudent {
+  color: white;
+  background-color: #0379f8;
 }

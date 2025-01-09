@@ -15,6 +15,7 @@ import {StudentDetailsComponent} from "./student-details/student-details.compone
 import {NewBillComponent} from "./new-bill/new-bill.component";
 import {PaymentDetailsComponent} from "./payment-details/payment-details.component";
 import {BillsDetailsComponent} from "./bills-details/bills-details.component";
+import {NewStudentComponent} from "./new-student/new-student.component";
 
 const routes: Routes = [
   {path : "", component : LoginComponent},
@@ -29,6 +30,7 @@ const routes: Routes = [
       {path : "payments", component : BillsComponent},
       {path : "bills-details/:studentId", component : BillsDetailsComponent},
       {path : "student-details/:studentId", component : StudentDetailsComponent},
+      {path : "new-student", component : NewStudentComponent},
       {path : "new-bill/:studentId", component : NewBillComponent},
       {path : "payment-details/:id", component : PaymentDetailsComponent},
       {

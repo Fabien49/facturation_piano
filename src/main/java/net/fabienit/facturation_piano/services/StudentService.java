@@ -24,4 +24,6 @@ public class StudentService {
         return studentRepository.findByLastName(lastName);
     }
 
+    public Student saveStudent(Student student) { return studentRepository.save(student);
+    }
 }

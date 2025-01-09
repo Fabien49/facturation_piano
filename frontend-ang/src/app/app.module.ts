@@ -38,6 +38,9 @@ import {PdfViewerModule} from "ng2-pdf-viewer";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import { PaymentDetailsComponent } from './payment-details/payment-details.component';
 import {BillsDetailsComponent} from "./bills-details/bills-details.component";
+import {NewStudentComponent} from "./new-student/new-student.component";
+import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
+import {MatDialogActions, MatDialogClose, MatDialogContent, MatDialogTitle} from "@angular/material/dialog";
 
 @NgModule({
   declarations: [
@@ -54,7 +57,9 @@ import {BillsDetailsComponent} from "./bills-details/bills-details.component";
     StudentDetailsComponent,
     NewBillComponent,
     PaymentDetailsComponent,
-    BillsDetailsComponent
+    BillsDetailsComponent,
+    NewStudentComponent,
+    ConfirmationDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -78,7 +83,11 @@ import {BillsDetailsComponent} from "./bills-details/bills-details.component";
     MatNativeDateModule,
     MatSelectModule,
     PdfViewerModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatDialogTitle,
+    MatDialogContent,
+    MatDialogActions,
+    MatDialogClose
   ],
   providers: [
     provideAnimationsAsync(), AuthGuard, AuthorizationGuard

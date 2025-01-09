@@ -16,7 +16,7 @@
   <button mat-button *ngIf="authService.isAuthenticated">
     {{authService.username}}
   </button>
-  <button mat-raised-button color="accent" (click)="logout()">Logout</button>
+  <button mat-raised-button class="logout" (click)="logout()">Logout</button>
 </mat-toolbar>
 <mat-drawer-container>
   <mat-drawer #myDrawer opened="true" mode="side" position="start">

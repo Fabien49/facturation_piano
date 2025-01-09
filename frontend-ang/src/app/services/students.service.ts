@@ -31,4 +31,8 @@ export class StudentsService {
     return this.http.get(`${environment.backendHost}/payments/${id}/file`,
       {responseType: 'blob'});
   }
+
+  addStudent(student: any): Observable<any> {
+    return this.http.post(`${environment.backendHost}/student`, student);
+  }
 }

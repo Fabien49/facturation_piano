@@ -2,10 +2,7 @@ package net.fabienit.facturation_piano.web;
 
 import net.fabienit.facturation_piano.entities.Student;
 import net.fabienit.facturation_piano.services.StudentService;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -28,5 +25,10 @@ public class StudentController {
     @GetMapping("/student/{lastName}")
     public Student getStudentByLastName(@PathVariable String lastName){
         return studentService.getStudentByLastName(lastName);
+    }
+
+    @PostMapping("/student")
+    public Student saveStudent(@RequestBody Student student){
+        return studentService.saveStudent(student);
     }
 }

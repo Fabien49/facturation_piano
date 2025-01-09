@@ -33,4 +33,8 @@ export class StudentsComponent implements OnInit{
     this.router.navigateByUrl(`/admin/bills-details/${student.studentId}`)
 
   }
+
+  newStudent() {
+    this.router.navigateByUrl(`/admin/new-student`)
+  }
 }

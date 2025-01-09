@@ -1,3 +1,12 @@
 mat-toolbar {
   background-color: #037afa;
 }
+
+.logout {
+  background-color: red;
+}
+
+
+.logout:hover {
+  background-color: darkred;
+}
