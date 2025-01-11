@@ -19,7 +19,6 @@ export class NewStudentComponent implements OnInit {
     private fb: FormBuilder,
     private studentsService: StudentsService,
     private router: Router,
-    private snackBar: MatSnackBar,
     private dialog: MatDialog
   ) {}
 

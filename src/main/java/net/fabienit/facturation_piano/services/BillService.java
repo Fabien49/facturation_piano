@@ -1,21 +1,13 @@
 package net.fabienit.facturation_piano.services;
 
-import net.fabienit.facturation_piano.dtos.NewPaymentDTO;
 import net.fabienit.facturation_piano.entities.*;
 import net.fabienit.facturation_piano.repository.BillRepository;
-import net.fabienit.facturation_piano.repository.PaymentRepository;
 import net.fabienit.facturation_piano.repository.StudentRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.multipart.MultipartFile;
 
-import java.io.IOException;
-import java.net.URI;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.UUID;
+import java.util.List;
 
 @Service
 @Transactional
@@ -51,6 +43,13 @@ public class BillService {
         Bill bill = billRepository.findById(id).orElseThrow();
         bill.setBillStatus(status);
         return billRepository.save(bill);
+    }
+
+    public List<Bill> getBillsByStudentId(Long studentId) {
+        if (studentId == null) {
+            throw new IllegalArgumentException("Student ID cannot be null");
+        }
+        return billRepository.findAllByStudentStudentId(studentId);
     }
 
 /*    public byte[] getPaymentFile(Long id) throws IOException {

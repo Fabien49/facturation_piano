@@ -21,13 +21,27 @@ export interface Payment {
 }
 
 export interface Bill {
-  billId : number,
+  billNumber : number,
   date : string,
   amount : number,
   type : string,
   status : string,
   file : string,
   student : Student
+}
+
+export interface ChildStudent {
+  lastName : string,
+  firstName : string,
+  student : Student
+}
+
+export interface Course {
+  courseId: number,
+  date: string,
+  duration: number,
+  student : Student,
+  childStudent : ChildStudent
 }
 
 export enum PaymentType {

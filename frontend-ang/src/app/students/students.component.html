@@ -105,7 +105,6 @@
           <th mat-header-cell *matHeaderCellDef mat-sort-header> Élève </th>
           <td mat-cell *matCellDef="let student"> {{student.student ? 'Oui' : 'Non'}} </td>
         </ng-container>
-
         <!-- Bills -->
         <ng-container matColumnDef="bills">
           <th mat-header-cell *matHeaderCellDef mat-sort-header> Factures </th>
@@ -113,6 +112,13 @@
             <button (click)="studentBills(student)" mat-raised-button class="custom-button">Factures</button>
           </td>
         </ng-container>
+        <ng-container matColumnDef="details">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Détail </th>
+          <td mat-cell *matCellDef="let student">
+            <button (click)="studentDetails(student)" mat-raised-button color="accent">Détail</button>
+          </td>
+        </ng-container>
+
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

@@ -1,32 +1,32 @@
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Router} from "@angular/router";
-import {StudentsService} from "../services/students.service";
-import {Bill, Payment} from "../model/students.model";
-import {MatTableDataSource} from "@angular/material/table";
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from "@angular/router";
+import { StudentsService } from "../services/students.service";
+import { Bill, Student, Course } from "../model/students.model";
 
 @Component({
   selector: 'app-student-details',
   templateUrl: './student-details.component.html',
-  styleUrl: './student-details.component.css'
+  styleUrls: ['./student-details.component.css']
 })
-export class StudentDetailsComponent implements OnInit{
+export class StudentDetailsComponent implements OnInit {
+  studentId!: bigint;
+  studentDetails!: any;
+  studentBills: Bill[] = [];
+  studentCourses: Course[] = [];
+  showBills: boolean = false;
+  showCourses: boolean = false;
 
-  studentId! : bigint;
-  studentBills! : Array<Bill>;
-  billsDataSource! : MatTableDataSource<Bill>;
-  public displayedColumns = ['id', 'date', 'amount', 'type', 'status', 'firstName', 'details'];
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private studentsService: StudentsService,
+    private router: Router
+  ) {}
 
-  constructor(private activatedRoute : ActivatedRoute,
-              private studentsService : StudentsService,
-              private router : Router) {
-  }
-
-  ngOnInit() {
+  ngOnInit(): void {
     this.studentId = this.activatedRoute.snapshot.params['studentId'];
-    this.studentsService.getStudentBills(this.studentId).subscribe({
+    this.studentsService.getStudentDetails(this.studentId).subscribe({
       next : value => {
-        this.studentBills = value;
-        this.billsDataSource = new MatTableDataSource<Bill>(this.studentBills);
+        this.studentDetails = value;
       },
       error : err => {
         console.log(err);
@@ -34,11 +34,45 @@ export class StudentDetailsComponent implements OnInit{
     });
   }
 
-  newPayment() {
-    this.router.navigateByUrl(`/admin/new-bill/${this.studentId}`)
+  loadStudentBills(): void {
+    if (!this.showBills) {
+      this.studentsService.getStudentBills(this.studentId).subscribe({
+        next: (bills: Bill[]) => {
+          this.studentBills = bills;
+          this.showBills = true;
+        },
+        error: (err) => {
+          console.error('Erreur lors de la récupération des factures :', err);
+        }
+      });
+    } else {
+      this.showBills = false;
+    }
   }
 
-  paymentDetails(payment:Payment) {
-    this.router.navigateByUrl(`/admin/payment-details/${payment.id}`);
+  loadStudentCourses(): void {
+    if (!this.showCourses) {
+      this.studentsService.getStudentCourses(this.studentId).subscribe({
+        next: (courses: Course[]) => {
+          this.studentCourses = courses;
+          console.log(courses)
+          this.showCourses = true;
+        },
+        error: (err) => {
+          console.error('Erreur lors de la récupération des cours :', err);
+        }
+      });
+    } else {
+      this.showCourses = false;
+    }
   }
+
+  viewBillDetails(bill: Bill): void {
+    this.router.navigateByUrl(`/admin/bill-details/${bill.billNumber}`);
+  }
+
+  newBill(): void {
+    this.router.navigateByUrl(`/admin/new-bill/${this.studentId}`);
+  }
+
 }

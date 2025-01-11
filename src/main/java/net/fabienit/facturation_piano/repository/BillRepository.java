@@ -18,6 +18,8 @@ public interface BillRepository extends JpaRepository<Bill, Long> {
 
     List<Bill> findBySentDate(LocalDate sentDate);
 
+    List<Bill> findAllByStudentStudentId(Long studentId);
+
 
 
 }

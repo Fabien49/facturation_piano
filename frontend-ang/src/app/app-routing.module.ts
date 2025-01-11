@@ -27,7 +27,7 @@ const routes: Routes = [
       {path : "profile", component : ProfileComponent},
       {path : "dashboard", component : DashboardComponent},
       {path : "students", component : StudentsComponent},
-      {path : "payments", component : BillsComponent},
+      {path : "bills", component : BillsComponent},
       {path : "bills-details/:studentId", component : BillsDetailsComponent},
       {path : "student-details/:studentId", component : StudentDetailsComponent},
       {path : "new-student", component : NewStudentComponent},

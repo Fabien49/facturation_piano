@@ -4,27 +4,27 @@ import net.fabienit.facturation_piano.entities.*;
 import net.fabienit.facturation_piano.repository.BillRepository;
 import net.fabienit.facturation_piano.repository.StudentRepository;
 import net.fabienit.facturation_piano.services.BillService;
-import org.springframework.http.ResponseEntity;
+import net.fabienit.facturation_piano.services.CourseService;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "*")
-public class BillRestController {
+public class CourseRestController {
 
-    private StudentRepository studentRepository;
+    private final CourseService courseService;
+/*    private StudentRepository studentRepository;
 
     private BillRepository billRepository;
 
-    private BillService billService;
+    private BillService billService;*/
 
-    public BillRestController(StudentRepository studentRepository, BillRepository billRepository, BillService billService){
-        this.studentRepository = studentRepository;
-        this.billRepository = billRepository;
-        this.billService = billService;
+    public CourseRestController(CourseService courseService){
+        this.courseService = courseService;
     }
 
-    @GetMapping(path = "/bills")
+/*    @GetMapping(path = "/bills")
     public List<Bill> allBills(){
         return billRepository.findAll();
     }
@@ -52,11 +52,11 @@ public class BillRestController {
     @GetMapping(path = "/bill/{id}")
     public Bill getPaymentById(@PathVariable Long id){
         return billRepository.findById(id).orElseThrow();
-    }
+    }*/
 
-    @GetMapping("/student/{studentId}/bills")
-    public List<Bill> getBillsByStudentId(@PathVariable Long studentId) {
-        return billService.getBillsByStudentId(studentId);
+    @GetMapping("/student/{studentId}/courses")
+    public List<Course> getCoursesByStudentId(@PathVariable Long studentId) {
+        return courseService.getCoursesByStudentId(studentId);
     }
 
 /*    @GetMapping(path = "/students")
@@ -74,10 +74,10 @@ public class BillRestController {
         return studentRepository.findByProgramId(programId);
     }*/
 
-    @PutMapping("/bill/{id}")
+/*    @PutMapping("/bill/{id}")
     public Bill updatePaymentStatus(@RequestParam BillStatus status, @PathVariable Long id){
         return billService.updateBillStatus(status, id);
-    }
+    }*/
 
 /*    @PostMapping(value = "/bills", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public Payment savePayment(@RequestParam("file") MultipartFile file, NewPaymentDTO newPaymentDTO) throws IOException {

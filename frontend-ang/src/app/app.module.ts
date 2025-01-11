@@ -40,7 +40,15 @@ import { PaymentDetailsComponent } from './payment-details/payment-details.compo
 import {BillsDetailsComponent} from "./bills-details/bills-details.component";
 import {NewStudentComponent} from "./new-student/new-student.component";
 import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
-import {MatDialogActions, MatDialogClose, MatDialogContent, MatDialogTitle} from "@angular/material/dialog";
+import {
+  MatDialogActions,
+  MatDialogClose,
+  MatDialogContent,
+  MatDialogModule,
+  MatDialogTitle
+} from "@angular/material/dialog";
+import {MatRadioButton, MatRadioGroup, MatRadioModule} from "@angular/material/radio";
+import { ChildStudentComponent } from './child-student/child-student.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +67,8 @@ import {MatDialogActions, MatDialogClose, MatDialogContent, MatDialogTitle} from
     PaymentDetailsComponent,
     BillsDetailsComponent,
     NewStudentComponent,
-    ConfirmationDialogComponent
+    ConfirmationDialogComponent,
+    ChildStudentComponent
   ],
   imports: [
     BrowserModule,
@@ -84,10 +93,13 @@ import {MatDialogActions, MatDialogClose, MatDialogContent, MatDialogTitle} from
     MatSelectModule,
     PdfViewerModule,
     MatProgressSpinnerModule,
-    MatDialogTitle,
+    MatDialogModule,
     MatDialogContent,
     MatDialogActions,
-    MatDialogClose
+    MatDialogClose,
+    MatRadioGroup,
+    MatRadioModule,
+    MatRadioButton,
   ],
   providers: [
     provideAnimationsAsync(), AuthGuard, AuthorizationGuard

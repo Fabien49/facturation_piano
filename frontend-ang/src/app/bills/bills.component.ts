@@ -4,6 +4,7 @@ import {MatTableDataSource} from "@angular/material/table";
 import {MatPaginator} from "@angular/material/paginator";
 import {MatSort} from "@angular/material/sort";
 import {StudentsService} from "../services/students.service";
+import {Bill} from "../model/students.model";
 
 @Component({
   selector: 'app-payments',
@@ -12,7 +13,7 @@ import {StudentsService} from "../services/students.service";
 })
 export class BillsComponent implements OnInit{
 
-  public payments : any;
+  public bills : any;
   public dataSource : any;
   public displayedColumns = ['id', 'date', 'amount', 'type', 'status', 'firstName'];
 
@@ -22,12 +23,22 @@ export class BillsComponent implements OnInit{
   }
 
   ngOnInit() {
-    this.studentsService.getAllPayments().subscribe({
+    this.studentsService.getAllBills().subscribe({
       next : data => {
-        this.payments = data;
-        this.dataSource = new MatTableDataSource(this.payments);
+        console.log(data);
+        this.bills = data;
+        this.dataSource = new MatTableDataSource(this.bills);
+        this.bills.forEach((bill: Bill) => {
+          console.log('Checking Bill:', bill);
+          console.log('ID:', bill.billNumber);
+          console.log('Date:', bill.date);
+          console.log('Type:', bill.type);
+          console.log('Status:', bill.status);
+          console.log('Student:', bill.student.firstName);
+        });
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
+        this.dataSource._updateChangeSubscription();
       },
       error : err => {
         console.log(err)

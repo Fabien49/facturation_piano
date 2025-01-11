@@ -6,9 +6,11 @@ mat-form-field {
   width: 500px;
 }
 
-.pdf-viewer {
-  height: 100vh;
-  display: block;
-  margin: 0 auto;
-  max-width: 1200px;
+.saveStudent {
+  background-color: #0379f8;
+  color: white;
+}
+
+.saveStudent:hover {
+  background-color: #0b335b;
 }
